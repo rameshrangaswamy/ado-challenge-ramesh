@@ -14,7 +14,7 @@ stages:
   jobs:
   - deployment: DeploymentFile
     displayName: 'DeploymentFile'
-    environment: 'RightAngle21.0AppPool'
+    environment: 'vc-vm-interview'
     strategy:
       runOnce:
         deploy:
