@@ -6,7 +6,7 @@
 trigger: none
 
 pool:
- demands: vc-vm-interview
+ vmImage: windows-latest
 
 stages:
 - stage: Deploy
@@ -21,7 +21,7 @@ stages:
           steps:
           - checkout: self
           - task: CopyFiles@2
-            displayName: 'Copy Package to: C:\azagent\A1'
+            displayName: 'Copy Package to: C:\azagent\A1\moveFile'
             inputs:
               SourceFolder: '$(Build.SourcesDirectory)/moveFile'
               Contents: '**'
