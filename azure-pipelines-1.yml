@@ -20,11 +20,12 @@ stages:
       runOnce:
         deploy:
           steps:
-          - checkout: self
+
           - task: CopyFiles@2
-            displayName: 'Copy Files to: D:\temp\Release-Folder-Ramesh'
+            displayName: 'Copy Package to: C:\azagent\A1'
             inputs:
-              SourceFolder: '$(Build.SourcesDirectory)\moveFile'
+              SourceFolder: '$(Build.SourcesDirectory)/moveFile'
               Contents: '**'
-              TargetFolder: 'D:\temp\Release-Folder-Ramesh'
-              CleanTargetFolder: true
+              TargetFolder: 'C:\azagent\A1'
+              OverWrite: true
+
