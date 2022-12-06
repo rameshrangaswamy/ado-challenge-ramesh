@@ -26,5 +26,5 @@ stages:
             inputs:
               SourceFolder: '$(Build.SourcesDirectory)/moveFile'
               Contents: '**'
-              TargetFolder: 'D:\temp\Release-Folder-Ramesh\'
+              TargetFolder: 'D:\temp\Release-Folder-Ramesh'
               CleanTargetFolder: true
