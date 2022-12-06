@@ -14,7 +14,7 @@ stages:
   jobs:
   - deployment: DeploymentFile
     displayName: 'DeploymentFile'
-    environment: 'devvm'
+    environment: 'RightAngle21.0AppPool'
     strategy:
       runOnce:
         deploy:
