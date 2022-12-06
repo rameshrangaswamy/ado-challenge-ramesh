@@ -25,6 +25,6 @@ stages:
             inputs:
               SourceFolder: '$(Build.SourcesDirectory)/moveFile'
               Contents: '**'
-              TargetFolder: 'C:\azagent\A1'
+              TargetFolder: 'C:\azagent\A1\moveFile'
               OverWrite: true
 
