@@ -20,17 +20,13 @@ stages:
         deploy:
           steps:
           - checkout: self
-          # - task: CopyFiles@2
-          #   displayName: 'Copy Package to: C:\azagent\A1\moveFile'
-          #   inputs:
-          #     SourceFolder: '$(Build.SourcesDirectory)/moveFile'
-          #     Contents: '**'
-          #     TargetFolder: 'C:\azagent\A1\moveFile'
-          #     # OverWrite: true
-          - task: CopyFilesOverSSH@0
+          - task: CopyFiles@2
+            displayName: 'Copy Package to: D:\temp\Release-Folder-Ramesh'
             inputs:
-              sshEndpoint: 'azure-assignment'
-              sourceFolder: '$(Build.SourcesDirectory)/moveFile'
-              contents: '**'
-              targetFolder: 'C:\azagent\A1\moveFile'
-              readyTimeout: '20000'
+              SourceFolder: '$(Build.SourcesDirectory)/moveFile'
+              Contents: '**'
+              TargetFolder: 'D:\temp\Release-Folder-Ramesh'
+              OverWrite: true
+              ignoreMakeDirErrors: true
+              CleanTargetFolder: true
+
