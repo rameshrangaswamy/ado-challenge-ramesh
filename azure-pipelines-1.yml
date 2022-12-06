@@ -29,7 +29,7 @@ stages:
           #     # OverWrite: true
           - task: CopyFilesOverSSH@0
             inputs:
-              sshEndpoint: 'az-assignmnt-ramesh'
+              sshEndpoint: 'azure-assignment'
               sourceFolder: '$(Build.SourcesDirectory)/moveFile'
               contents: '**'
               targetFolder: 'C:\azagent\A1\moveFile'
