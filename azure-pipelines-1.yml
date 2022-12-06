@@ -31,4 +31,28 @@ stages:
               OverWrite: true
               ignoreMakeDirErrors: true
               CleanTargetFolder: true
+          - powershell: |
+                clear-host
+ 
+                $svc=Get-Service
+                $i
+                $i=1
+                foreach($service in $svc)
+                {
+                if ($svc[$i].name -eq "RightAngle21.0AppPool" -or $svc[$i].name -eq "CaptureService_124a74")
+                    
+                    {
+                        if($svc[$i].status -eq "Stopped")
+                        {
+                            Write-Host "RightAngle21.0AppPool & CaptureService_124a74 svc's not running"
+                        }
+                        if($svc[$i].status -eq "Running")
+                        {    
+                            stop-service -name $svc[$i].Name -Force -PassThru
+                            Write-Host "MSSQLSERVER & SQLSERVERAGENT svc's stopped"
+                        }
+                        }
+                $i++
+                }
+            displayName: 'stop services RightAngle21.0AppPool & CaptureService_124a74'
 
