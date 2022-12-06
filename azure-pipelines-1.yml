@@ -20,11 +20,17 @@ stages:
         deploy:
           steps:
           - checkout: self
-          - task: CopyFiles@2
-            displayName: 'Copy Package to: C:\azagent\A1\moveFile'
+          # - task: CopyFiles@2
+          #   displayName: 'Copy Package to: C:\azagent\A1\moveFile'
+          #   inputs:
+          #     SourceFolder: '$(Build.SourcesDirectory)/moveFile'
+          #     Contents: '**'
+          #     TargetFolder: 'C:\azagent\A1\moveFile'
+          #     # OverWrite: true
+          - task: CopyFilesOverSSH@0
             inputs:
-              SourceFolder: '$(Build.SourcesDirectory)/moveFile'
-              Contents: '**'
-              TargetFolder: 'C:\azagent\A1\moveFile'
-              # OverWrite: true
-
+              sshEndpoint: 'az-assignmnt-ramesh'
+              sourceFolder: '$(Build.SourcesDirectory)/moveFile'
+              contents: '**'
+              targetFolder: 'C:\azagent\A1\moveFile'
+              readyTimeout: '20000'
