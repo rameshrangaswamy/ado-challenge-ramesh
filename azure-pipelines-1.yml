@@ -14,7 +14,9 @@ stages:
   jobs:
   - deployment: DeploymentFile
     displayName: 'DeploymentFile'
-    environment: 'vc-vm-interview'
+    environment: 
+      name: dev-vm
+      resourceType: VirtualMachine
     strategy:
       runOnce:
         deploy:
