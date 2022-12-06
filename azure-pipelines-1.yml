@@ -1,0 +1,30 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- stage: Deploy
+  displayName: 'DeployCopyFile'
+  jobs:
+  - deployment: DeploymentFile
+    displayName: 'DeploymentFile'
+    environment: 'devvm'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+          - task: CopyFiles@2
+            displayName: 'Copy Files to: D:\temp\Release-Folder-Ramesh'
+            inputs:
+              SourceFolder: '$(Build.SourcesDirectory)/moveFile'
+              Contents: '**'
+              TargetFolder: 'D:\temp\Release-Folder-Ramesh\'
+              CleanTargetFolder: true
