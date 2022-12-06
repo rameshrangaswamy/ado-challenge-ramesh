@@ -6,7 +6,7 @@
 trigger: none
 
 pool:
-  vmImage: windows-latest
+ demands: vc-vm-interview
 
 stages:
 - stage: Deploy
